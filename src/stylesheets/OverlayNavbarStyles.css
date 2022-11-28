@@ -1,0 +1,48 @@
+/* FIXED NAVBAR */
+.navigation-section {
+  background-image: linear-gradient(135deg, #feb692 10%, #ea5455 100%);
+  color: #fff;
+  padding: 13px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.overlay-nav-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.link-group {
+  display: flex;
+  gap: 30px;
+}
+
+/* LINKS & BUTTONS */
+
+#link {
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 0px;
+  display: flex;
+  align-items: center;
+}
+
+#overlay-nav-btn {
+  background: #feb692;
+  width: 180px;
+  padding: 5px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 50px;
+}

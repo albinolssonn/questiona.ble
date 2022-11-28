@@ -1,0 +1,42 @@
+/* DESKTOP NAVBAR */
+.desktop-nav-section {
+  background-image: linear-gradient(135deg, #feb692 10%, #ea5455 100%);
+  color: #fff;
+  padding: 13px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+}
+
+.desktop-nav-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.link-group {
+  display: flex;
+  gap: 30px;
+}
+
+/* LINKS & BUTTONS */
+
+#link {
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+#desktop-nav-btn {
+  background: #feb692;
+  width: 180px;
+  padding: 5px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 50px;
+}

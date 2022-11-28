@@ -1,0 +1,31 @@
+.sign-form-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.sign-form-container {
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.sign-form {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.sign-form input {
+  padding: 15px 12px;
+  border-radius: 3px;
+  border: 1px solid #c4c4c4;
+}
+#sign-btn {
+  padding: 15px 12px;
+  font-size: 16px;
+  border-radius: 3px;
+  border-style: none;
+}

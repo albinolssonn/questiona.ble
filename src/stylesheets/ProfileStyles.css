@@ -1,0 +1,156 @@
+.profile-header-section {
+  background: pink;
+  position: relative;
+}
+
+.go-back-btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.go-back-btn:hover {
+  cursor: pointer;
+}
+
+.profile-header-container {
+  width: 200px;
+  margin: auto;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+}
+
+.profile-pic {
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 100px;
+}
+
+#follow-btn,
+#subscribe-btn {
+  height: 40px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+}
+
+/* Questionaire Component */
+
+.profile-ask-container {
+  width: 700px;
+  margin: 20px auto;
+}
+
+.profile-ask-content {
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.profile-ask-bar {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.bar-options {
+  display: flex;
+  gap: 5px;
+}
+
+#questionaire {
+  resize: none;
+  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.right-btn-container {
+  text-align: right;
+  margin-top: 5px;
+  display: flex;
+  justify-content: right;
+}
+
+#ask-btn {
+  height: 40px;
+  width: 140px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+}
+
+/* Profile Question List */
+
+.answer-list-container {
+  width: 700px;
+  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intro-bar {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-pic-mini {
+  background: grey;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+}
+
+.question,
+.answer {
+  display: flex;
+  gap: 10px;
+}
+
+.question {
+  font-weight: bold;
+}
+
+.interaction-bar {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #c4c4c4;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
