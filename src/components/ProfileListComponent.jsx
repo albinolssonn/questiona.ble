@@ -11,6 +11,14 @@ const ProfileListComponent = () => {
   return (
     <div className="answer-list-section">
       <div className="answer-list-container">
+        <div className="answer-list-filter-bar">
+          <h4>Sort Questions</h4>
+          <div className="filter-buttons">
+            <button id="filter-btn">Latest</button>
+            <button id="filter-btn">Most liked</button>
+            <button id="filter-btn">Users favourites</button>
+          </div>
+        </div>
         <div className="question-card">
           <div className="intro-bar">
             <div className="user-info">

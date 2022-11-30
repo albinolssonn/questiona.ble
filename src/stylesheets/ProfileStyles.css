@@ -95,11 +95,35 @@
   border: none;
 }
 
+/*  */
+
 /* Profile Question List */
 
 .answer-list-container {
   width: 700px;
   margin: auto;
+}
+
+.answer-list-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+}
+
+#filter-btn {
+  background: pink;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 50px;
+}
+
+.question-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
 }
