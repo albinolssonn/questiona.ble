@@ -40,3 +40,14 @@
   font-size: 16px;
   border-radius: 50px;
 }
+
+/* Scaled Down Navbar */
+.scaled-nav-section {
+  background-image: linear-gradient(135deg, #feb692 10%, #ea5455 100%);
+  color: #fff;
+  padding: 5px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+}
