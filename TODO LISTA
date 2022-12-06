@@ -1,4 +1,4 @@
-PROFILSIDA:
+PROFILSIDA (Inloggad):
 
 Likesfunktion --> Just nu kan man lägga till sig som liker,
 men den måste kolla ifall man redan gillar inlägget.
@@ -11,4 +11,16 @@ Share-knapp --> Hur fan delar man något?
 
 Support-knapp --> Detta är rymden, hur gör man? Testa med stripe?
 
-More-knapp --> Möjlighet att rapportera fråga,
+More-knapp --> Möjlighet att rapportera fråga
+
+Sorteringsalternativ --> Göra så att man kan sortera frågorna på olika preferenser.
+
+Obesvarade frågor --> Skapa en sida där alla obesvarade frågor hamnar. När dessa besvaras så ska de skickas till answered_questions i firestore.
+
+Profilsida (utloggad / annans profilsida):
+
+Subscribefunktion --> En funktion för att börja subscribea en person för deg. Testa detta med stripe.
+
+Followfunktion --> En funktion för att börja följa en person gratis
+
+Frågefunktion --> En funktion för att kunna ställa frågor till en person förutsatt att man subscribear typ.
