@@ -1,21 +1,30 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { auth } from "../server/firebase-config";
 import "../stylesheets/NavbarStyles.css";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { signOut } from "firebase/auth";
 
-const ScaledDownNavbar = () => {
+const SignedInNavbar = () => {
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState(true);
+  const { id } = useParams();
+
+  const logout = async () => {
+    await signOut(auth);
+    navigate("/login");
+    localStorage.clear();
+  };
+
   return (
-    <div className="scaled-nav-section">
+    <div className="signedin-nav-section">
       <div className="logo">
         <h1 onClick={() => navigate("/")}>Logotyp</h1>
       </div>
       {menuToggle && (
-        <div className="desktop-nav-links">
+        <div className="nav-links">
           <div className="link-group">
-            <Link to="/myprofile/1" id="link">
+            <Link to={`/myprofile/${id}`} id="link">
               My Profile
             </Link>
             <Link to="/explore" id="link">
@@ -24,18 +33,19 @@ const ScaledDownNavbar = () => {
           </div>
 
           <div className="link-group">
-            <Link to="/login" id="link">
+            <div className="signout-section" onClick={logout}>
               <ExitToAppIcon />
-              Login
-            </Link>
-            <div
+              Sign out
+            </div>
+
+            {/* <div
               onClick={() => {
                 navigate("/register");
               }}
               id="desktop-nav-btn"
             >
               Sign Up
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -43,4 +53,4 @@ const ScaledDownNavbar = () => {
   );
 };
 
-export default ScaledDownNavbar;
+export default SignedInNavbar;

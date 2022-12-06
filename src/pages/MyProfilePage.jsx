@@ -2,13 +2,13 @@ import React from "react";
 import ProfileHeaderComponent from "../components/ProfileHeaderComponent";
 import ProfileListComponent from "../components/ProfileListComponent";
 import FooterComponent from "../navigation/FooterComponent";
-import ScaledDownNavbar from "../navigation/ScaledDownNavbar";
+import SignedInNavbar from "../navigation/SignedInNavbar";
 
 const MyProfilePage = () => {
   return (
     <div className="page">
       <div className="main-content">
-        <ScaledDownNavbar />
+        <SignedInNavbar />
         <ProfileHeaderComponent />
         <ProfileListComponent />
       </div>

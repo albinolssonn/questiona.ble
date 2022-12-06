@@ -9,7 +9,11 @@
   gap: 70px;
 }
 
-.desktop-nav-links {
+.logo:hover {
+  cursor: pointer;
+}
+
+.nav-links {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -27,6 +31,7 @@
   font-size: 18px;
   display: flex;
   align-items: center;
+  gap: 5px;
 }
 
 #desktop-nav-btn {
@@ -42,12 +47,23 @@
 }
 
 /* Scaled Down Navbar */
-.scaled-nav-section {
-  background-image: linear-gradient(135deg, #feb692 10%, #ea5455 100%);
+.signedin-nav-section {
+  /* background-image: linear-gradient(135deg, #feb692 10%, #ea5455 100%); */
+  background: pink;
   color: #fff;
   padding: 5px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 70px;
+}
+
+.signout-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.signout-section:hover {
+  cursor: pointer;
 }

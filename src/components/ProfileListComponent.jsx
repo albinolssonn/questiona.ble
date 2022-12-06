@@ -6,8 +6,57 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import {
+  arrayUnion,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
+import { db, auth } from "../server/firebase-config";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const ProfileListComponent = () => {
+  const { id } = useParams();
+  const [user, setUser] = useState([]);
+
+  const qaColRef = collection(db, "users", id, "answered_questions");
+  const userColRef = doc(db, "users", id);
+
+  const [questionList, setQuestionList] = useState([]);
+
+  useEffect(() => {
+    getAllAnseredQuestions();
+    getUserInfo();
+  }, []);
+
+  const getAllAnseredQuestions = async () => {
+    const tmpList = await getDocs(qaColRef);
+    setQuestionList(
+      tmpList.docs.map((question) => ({ ...question.data(), id: question.id }))
+    );
+  };
+
+  const getUserInfo = async () => {
+    const tmpUser = await getDoc(userColRef);
+
+    if (tmpUser.exists()) {
+      setUser(tmpUser.data());
+    } else {
+      console.log("User not found!");
+    }
+  };
+
+  const likeFunction = async (qid) => {
+    const questionDocRef = doc(db, "users", id, "answered_questions", qid);
+    await updateDoc(questionDocRef, {
+      likers: arrayUnion(auth.currentUser.uid),
+    });
+  };
+
   return (
     <div className="answer-list-section">
       <div className="answer-list-container">
@@ -19,50 +68,52 @@ const ProfileListComponent = () => {
             <button id="filter-btn">Users favourites</button>
           </div>
         </div>
-        <div className="question-card">
-          <div className="intro-bar">
-            <div className="user-info">
-              <div className="profile-pic-mini"></div>
-              <h4>username answers to...</h4>
-            </div>
 
-            <div className="more-section">
-              <MoreHorizIcon />
+        {questionList.map((question, key) => {
+          return (
+            <div className="question-card" key={key}>
+              <div className="intro-bar">
+                <div className="user-info">
+                  <img id="profile-pic-mini" src={user.img_link} alt="" />
+                  <h4>{user.username} answers to...</h4>
+                </div>
+
+                <div className="more-section">
+                  <MoreHorizIcon />
+                </div>
+              </div>
+              <div className="card-content">
+                <div className="question">
+                  <QuestionMarkIcon />
+                  <p>{question.question}</p>
+                </div>
+                <div className="answer">
+                  <ChatIcon />
+                  <p>{question.answer}</p>
+                </div>
+              </div>
+              <div className="interaction-bar">
+                <div
+                  className="icon-text"
+                  onClick={() => {
+                    likeFunction(question.id);
+                  }}
+                >
+                  <FavoriteIcon />
+                  <p>Like</p>
+                </div>
+                <div className="icon-text">
+                  <IosShareIcon />
+                  <p>Share</p>
+                </div>
+                <div className="icon-text">
+                  <VolunteerActivismIcon />
+                  <p>Support</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="card-content">
-            <div className="question">
-              <QuestionMarkIcon />
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua?
-              </p>
-            </div>
-            <div className="answer">
-              <ChatIcon />
-              <p>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur.
-              </p>
-            </div>
-          </div>
-          <div className="interaction-bar">
-            <div className="icon-text">
-              <FavoriteIcon />
-              <p>Like</p>
-            </div>
-            <div className="icon-text">
-              <IosShareIcon />
-              <p>Share</p>
-            </div>
-            <div className="icon-text">
-              <VolunteerActivismIcon />
-              <p>Support</p>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -21,19 +21,13 @@ const DesktopNavbar = () => {
     }
   }
 
-  //   const logout = async () => {
-  //     await signOut(auth);
-  //     navigate("/login");
-  //     localStorage.clear();
-  //   };
-
   return (
     <div className="desktop-nav-section">
       <div className="logo">
         <h1 onClick={() => navigate("/")}>Logotyp</h1>
       </div>
       {menuToggle && (
-        <div className="desktop-nav-links">
+        <div className="nav-links">
           <div className="link-group">
             {/* <Link to="/job" id="link">
             Start

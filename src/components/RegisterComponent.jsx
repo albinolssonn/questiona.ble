@@ -1,5 +1,8 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, db } from "../server/firebase-config";
+import { doc, setDoc } from "firebase/firestore";
 
 const RegisterComponent = () => {
   const [username, setUsername] = useState("");
@@ -8,9 +11,11 @@ const RegisterComponent = () => {
   const [verifyPassword, setVerifyPassword] = useState("");
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
+  const [errorCode, setErrorCode] = useState("");
+  const navigate = useNavigate();
 
   const registerOnClick = () => {
-    if (password == verifyPassword) {
+    if (password === verifyPassword) {
       registerWithEmail();
     } else {
       console.log("Password doesn't match.");
@@ -24,13 +29,13 @@ const RegisterComponent = () => {
         emailAddress,
         password
       );
-      await setDoc(doc(db, "users", username), {
+      await setDoc(doc(db, "users", tmpUser.user.uid), {
         username: username,
         email_address: emailAddress,
         name: name,
         country: country,
       });
-      navigate(`/profile/${tmpUser.user.uid}`);
+      navigate(`/myprofile/${username}`);
     } catch (error) {
       setErrorCode(error.message);
       console.log(errorCode);
@@ -86,7 +91,9 @@ const RegisterComponent = () => {
             }}
           />
 
-          <button id="sign-btn">Sign me up!</button>
+          <button onClick={registerOnClick} id="sign-btn">
+            Sign me up!
+          </button>
           <Link to="/login">Already in the game?</Link>
         </div>
       </div>

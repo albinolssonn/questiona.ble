@@ -1,0 +1,14 @@
+PROFILSIDA:
+
+Likesfunktion --> Just nu kan man lägga till sig som liker,
+men den måste kolla ifall man redan gillar inlägget.
+Isåfall ska man sluta gilla när man klickar på knappen.
+
+Edit Profile --> Ta användaren till sidan där hen kan ändra
+sina kontouppgifter. Här ska man kunna ändra användarnamn, epostadress, lösenord, profilbild och land. Lägga till bio?
+
+Share-knapp --> Hur fan delar man något?
+
+Support-knapp --> Detta är rymden, hur gör man? Testa med stripe?
+
+More-knapp --> Möjlighet att rapportera fråga,
