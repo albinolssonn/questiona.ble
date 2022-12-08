@@ -6,6 +6,7 @@ import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MyProfilePage from './pages/MyProfilePage';
+import EditProfilePage from './pages/EditProfilePage';
 
 function App() {
   return(
@@ -19,6 +20,9 @@ function App() {
           
           <Route path='/profile/:id' element={<ProfilePage />}/>
           <Route path='/myprofile/:id' element={<MyProfilePage />}/>
+          <Route path='/myprofile/:id/edit' element={<EditProfilePage />}/>
+
+
 
 
 

@@ -7,6 +7,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
 const ProfileHeaderComponent = () => {
+  const signedInUser = auth.currentUser;
   const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const { id } = useParams();
@@ -32,7 +33,7 @@ const ProfileHeaderComponent = () => {
         <img id="profile-pic" src={user.img_link} alt="" />
         <div className="profile-pic"></div>
         <h3>@{user.username}</h3>
-        {auth.currentUser ? (
+        {signedInUser ? (
           <div className="header-buttons">
             <button id="edit-profile-btn">Edit profile</button>
           </div>
@@ -43,7 +44,7 @@ const ProfileHeaderComponent = () => {
           </div>
         )}
       </div>
-      {!auth.currentUser && (
+      {!signedInUser && (
         <div
           className="go-back-btn"
           onClick={() => {

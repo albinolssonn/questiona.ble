@@ -187,3 +187,39 @@
   align-items: center;
   gap: 5px;
 }
+
+/* EDIT PROFILE PAGE */
+
+.acount-info-row {
+  padding: 10px 12px;
+  border-radius: 3px;
+  border: 1px solid #c4c4c4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-section {
+  display: flex;
+  gap: 8px;
+}
+
+#change-input {
+  padding-bottom: 5px;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #c4c4c4;
+  outline: none;
+}
+
+.change-btns {
+  display: flex;
+  gap: 5px;
+}
+
+#change-btn {
+  height: 35px;
+  width: 35px;
+  border-radius: 50px;
+  border:none;
+}

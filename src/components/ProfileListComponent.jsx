@@ -57,6 +57,8 @@ const ProfileListComponent = () => {
     });
   };
 
+  const unlikeFunction = async (qid) => {};
+
   return (
     <div className="answer-list-section">
       <div className="answer-list-container">
