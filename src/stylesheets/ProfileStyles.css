@@ -106,6 +106,7 @@
 .answer-list-container {
   width: 700px;
   margin: auto;
+  color: #404040;
 }
 
 .answer-list-filter-bar {
@@ -175,10 +176,6 @@
 .answer {
   display: flex;
   gap: 10px;
-}
-
-.question {
-  font-weight: bold;
 }
 
 .interaction-bar {

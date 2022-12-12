@@ -21,7 +21,15 @@
 
 .link-group {
   display: flex;
+  align-items: center;
   gap: 30px;
+}
+
+.rounded-link-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
 }
 
 /* LINKS & BUTTONS */
@@ -44,6 +52,16 @@
   align-items: center;
   font-size: 16px;
   border-radius: 50px;
+}
+
+.menu-icon-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  border-radius: 10px;
 }
 
 /* Scaled Down Navbar */

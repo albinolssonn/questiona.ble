@@ -4,15 +4,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import CloseIcon from "@mui/icons-material/Close";
-import {
-  addDoc,
-  collection,
-  doc,
-  FieldValue,
-  serverTimestamp,
-  setDoc,
-  Timestamp,
-} from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../server/firebase-config";
 import { useParams } from "react-router-dom";
 
@@ -21,7 +13,7 @@ const ProfileAskComponent = () => {
   const { id } = useParams();
   const [askToggle, setAskToggle] = useState(false);
   const [question, setQuestion] = useState("");
-  const [askedToggle, setASkedToggle] = useState(false);
+  const [askedToggle, setAskedToggle] = useState(false);
 
   const submitQuestion = async () => {
     const questionColRef = collection(db, "users", id, "unanswered_questions");
@@ -29,6 +21,7 @@ const ProfileAskComponent = () => {
       question: question,
       timestamp: serverTimestamp(),
     });
+    setAskedToggle(true); // denna ska fixas sen --> Hela funktionen för vad som händer efter att man ställt fråga!
   };
 
   return (

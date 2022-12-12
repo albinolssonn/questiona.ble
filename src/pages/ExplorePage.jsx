@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "../navigation/DesktopNavbar";
+import SignedInNavbar from "../navigation/SignedInNavbar";
 
 const ExplorePage = () => {
   return (
     <div>
-      <Navbar />
+      <SignedInNavbar />
       Explore
     </div>
   );

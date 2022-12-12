@@ -21,7 +21,7 @@ const ProfilePage = () => {
   return (
     <div className="page">
       <div className="main-content">
-        {loggedInToggle ? <SignedInNavbar /> : <DesktopNavbar />}
+        <SignedInNavbar />
         <ProfileHeaderComponent />
         <ProfileAskComponent />
         <ProfileListComponent />

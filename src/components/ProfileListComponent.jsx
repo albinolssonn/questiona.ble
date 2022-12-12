@@ -46,7 +46,7 @@ const ProfileListComponent = () => {
     if (tmpUser.exists()) {
       setUser(tmpUser.data());
     } else {
-      console.log("User not found!");
+      console.log("User not found");
     }
   };
 
@@ -78,7 +78,7 @@ const ProfileListComponent = () => {
                 <div className="intro-bar">
                   <div className="user-info">
                     <img id="profile-pic-mini" src={user.img_link} alt="" />
-                    <h4>{user.username} answers to...</h4>
+                    <p>{user.username} answers to...</p>
                   </div>
 
                   <div className="more-section">
