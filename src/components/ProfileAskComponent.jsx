@@ -4,9 +4,32 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import CloseIcon from "@mui/icons-material/Close";
+import {
+  addDoc,
+  collection,
+  doc,
+  FieldValue,
+  serverTimestamp,
+  setDoc,
+  Timestamp,
+} from "firebase/firestore";
+import { auth, db } from "../server/firebase-config";
+import { useParams } from "react-router-dom";
 
 const ProfileAskComponent = () => {
+  const signedInUser = auth.currentUser;
+  const { id } = useParams();
   const [askToggle, setAskToggle] = useState(false);
+  const [question, setQuestion] = useState("");
+  const [askedToggle, setASkedToggle] = useState(false);
+
+  const submitQuestion = async () => {
+    const questionColRef = collection(db, "users", id, "unanswered_questions");
+    await addDoc(questionColRef, {
+      question: question,
+      timestamp: serverTimestamp(),
+    });
+  };
 
   return (
     <div className="profile-ask-section">
@@ -16,9 +39,6 @@ const ProfileAskComponent = () => {
             <div className="profile-ask-content">
               <div className="profile-ask-bar">
                 <div className="bar-options">
-                  <p>Font</p>
-                  <p>Font</p>
-                  <p>Font</p>
                   <p>Font</p>
                 </div>
 
@@ -36,6 +56,9 @@ const ProfileAskComponent = () => {
                 placeholder="Ask me anything!"
                 cols="30"
                 rows="7"
+                onChange={(event) => {
+                  setQuestion(event.target.value);
+                }}
               ></textarea>
             </div>
             <div className="right-btn-container">
@@ -46,7 +69,9 @@ const ProfileAskComponent = () => {
                 />
               </FormGroup>
 
-              <button id="ask-btn">Send it!</button>
+              <button onClick={submitQuestion} id="ask-btn">
+                Send it!
+              </button>
             </div>
           </div>
         ) : (

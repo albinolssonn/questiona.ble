@@ -18,11 +18,13 @@ const ProfileHeaderComponent = () => {
   }, []);
 
   const getUserInfo = async () => {
-    const tmpUser = await getDoc(userColRef);
+    try {
+      const tmpUser = await getDoc(userColRef);
 
-    if (tmpUser.exists()) {
-      setUser(tmpUser.data());
-    } else {
+      if (tmpUser.exists()) {
+        setUser(tmpUser.data());
+      }
+    } catch (error) {
       console.log("User not found!");
     }
   };
@@ -35,7 +37,12 @@ const ProfileHeaderComponent = () => {
         <h3>@{user.username}</h3>
         {signedInUser ? (
           <div className="header-buttons">
-            <button id="edit-profile-btn">Edit profile</button>
+            <button
+              onClick={() => navigate(`/myprofile/${signedInUser.uid}/edit`)}
+              id="edit-profile-btn"
+            >
+              Edit profile
+            </button>
           </div>
         ) : (
           <div className="header-buttons">

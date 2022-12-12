@@ -71,51 +71,53 @@ const ProfileListComponent = () => {
           </div>
         </div>
 
-        {questionList.map((question, key) => {
-          return (
-            <div className="question-card" key={key}>
-              <div className="intro-bar">
-                <div className="user-info">
-                  <img id="profile-pic-mini" src={user.img_link} alt="" />
-                  <h4>{user.username} answers to...</h4>
-                </div>
+        <div className="question-card-container">
+          {questionList.map((question, key) => {
+            return (
+              <div className="question-card" key={key}>
+                <div className="intro-bar">
+                  <div className="user-info">
+                    <img id="profile-pic-mini" src={user.img_link} alt="" />
+                    <h4>{user.username} answers to...</h4>
+                  </div>
 
-                <div className="more-section">
-                  <MoreHorizIcon />
+                  <div className="more-section">
+                    <MoreHorizIcon />
+                  </div>
+                </div>
+                <div className="card-content">
+                  <div className="question">
+                    <QuestionMarkIcon />
+                    <p>{question.question}</p>
+                  </div>
+                  <div className="answer">
+                    <ChatIcon />
+                    <p>{question.answer}</p>
+                  </div>
+                </div>
+                <div className="interaction-bar">
+                  <div
+                    className="icon-text"
+                    onClick={() => {
+                      likeFunction(question.id);
+                    }}
+                  >
+                    <FavoriteIcon />
+                    <p>Like</p>
+                  </div>
+                  <div className="icon-text">
+                    <IosShareIcon />
+                    <p>Share</p>
+                  </div>
+                  <div className="icon-text">
+                    <VolunteerActivismIcon />
+                    <p>Support</p>
+                  </div>
                 </div>
               </div>
-              <div className="card-content">
-                <div className="question">
-                  <QuestionMarkIcon />
-                  <p>{question.question}</p>
-                </div>
-                <div className="answer">
-                  <ChatIcon />
-                  <p>{question.answer}</p>
-                </div>
-              </div>
-              <div className="interaction-bar">
-                <div
-                  className="icon-text"
-                  onClick={() => {
-                    likeFunction(question.id);
-                  }}
-                >
-                  <FavoriteIcon />
-                  <p>Like</p>
-                </div>
-                <div className="icon-text">
-                  <IosShareIcon />
-                  <p>Share</p>
-                </div>
-                <div className="icon-text">
-                  <VolunteerActivismIcon />
-                  <p>Support</p>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

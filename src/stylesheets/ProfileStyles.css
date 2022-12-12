@@ -132,6 +132,12 @@
   border-radius: 50px;
 }
 
+.question-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .question-card {
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
   /* border: 1px solid #c4c4c4; */
