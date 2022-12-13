@@ -12,8 +12,8 @@ const ProfileAskComponent = () => {
   const signedInUser = auth.currentUser;
   const { id } = useParams();
   const [askToggle, setAskToggle] = useState(false);
-  const [question, setQuestion] = useState("");
   const [askedToggle, setAskedToggle] = useState(false);
+  const [question, setQuestion] = useState("");
 
   const submitQuestion = async () => {
     const questionColRef = collection(db, "users", id, "unanswered_questions");
@@ -21,7 +21,11 @@ const ProfileAskComponent = () => {
       question: question,
       timestamp: serverTimestamp(),
     });
-    setAskedToggle(true); // denna ska fixas sen --> Hela funktionen för vad som händer efter att man ställt fråga!
+    setAskToggle(false);
+    setAskedToggle(true);
+    setTimeout(() => setAskedToggle(false), 3000);
+
+    // denna ska fixas sen --> Hela funktionen för vad som händer efter att man ställt fråga!
   };
 
   return (
@@ -55,12 +59,12 @@ const ProfileAskComponent = () => {
               ></textarea>
             </div>
             <div className="right-btn-container">
-              <FormGroup>
+              {/* <FormGroup>
                 <FormControlLabel
                   control={<Switch defaultChecked />}
                   label="Anonymous"
                 />
-              </FormGroup>
+              </FormGroup> */}
 
               <button onClick={submitQuestion} id="ask-btn">
                 Send it!
@@ -68,15 +72,28 @@ const ProfileAskComponent = () => {
             </div>
           </div>
         ) : (
-          <div className="ask-btn-div">
-            <button
-              onClick={() => {
-                setAskToggle(true);
-              }}
-              id="ask-btn"
-            >
-              Ask me a question!
-            </button>
+          <div>
+            {askedToggle ? (
+              <div className="response-container">
+                <div className="response-text">
+                  <p>
+                    Thank you for your question, you will get notified when it's
+                    answered!
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="ask-btn-div">
+                <button
+                  onClick={() => {
+                    setAskToggle(true);
+                  }}
+                  id="ask-btn"
+                >
+                  Ask me a question!
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>

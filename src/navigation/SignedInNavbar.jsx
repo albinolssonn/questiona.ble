@@ -51,7 +51,10 @@ const SignedInNavbar = () => {
               >
                 <PersonIcon />
               </div>
-              <div className="menu-icon-btn">
+              <div
+                className="menu-icon-btn"
+                onClick={() => navigate(`/answer/${signedInUser.uid}`)}
+              >
                 <QuestionMarkIcon />
               </div>
               <div className="menu-icon-btn" onClick={logout}>

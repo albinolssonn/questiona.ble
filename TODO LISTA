@@ -17,13 +17,11 @@ Sorteringsalternativ --> Göra så att man kan sortera frågorna på olika prefe
 
 Obesvarade frågor --> Skapa en sida där alla obesvarade frågor hamnar. När dessa besvaras så ska de skickas till answered_questions i firestore.
 
-
-
-
 Profilsida (utloggad / annans profilsida):
 
 Subscribefunktion --> En funktion för att börja subscribea en person för deg. Testa detta med stripe.
 
 Followfunktion --> En funktion för att börja följa en person gratis
 
-Frågefunktion --> En funktion för att kunna ställa frågor till en person förutsatt att man subscribear typ.
+(X) Frågefunktion --> En funktion för att kunna ställa frågor till en person
+--> Ska man kuna ha exklusiva frågor förutsatt att folk som prenumererar kan ställa frågor?

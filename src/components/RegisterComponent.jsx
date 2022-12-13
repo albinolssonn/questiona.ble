@@ -35,7 +35,7 @@ const RegisterComponent = () => {
         name: name,
         country: country,
       });
-      navigate(`/myprofile/${username}`);
+      navigate(`/myprofile/${tmpUser.user.uid}`);
     } catch (error) {
       setErrorCode(error.message);
       console.log(errorCode);

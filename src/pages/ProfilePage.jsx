@@ -21,7 +21,6 @@ const ProfilePage = () => {
   return (
     <div className="page">
       <div className="main-content">
-        <SignedInNavbar />
         <ProfileHeaderComponent />
         <ProfileAskComponent />
         <ProfileListComponent />
