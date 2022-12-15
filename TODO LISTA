@@ -1,3 +1,11 @@
+PRIO: 
+1. FIXA databasen så att frågorna är friskrivna. Både besvarade och obesvarade ska vara i samma bas. 
+  - En fråga ska ha attribut: Asker_ID och Answer_ID, Fråga, Svar, Timestamp, Likers.
+2. Se till att de besvarade frågorna filtreras på svar och ID
+3. Se till att de obesvarade frågorna filtreras på obesvarade och ID
+4. Se till att när man lägger till frågor så läggs id till från den som ställde frågan och den som ska svara. 
+5. Sök alltid frågorna med hjälp av querries. 
+
 PROFILSIDA (Inloggad):
 
 Likesfunktion --> Just nu kan man lägga till sig som liker,
